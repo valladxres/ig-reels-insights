@@ -59,15 +59,38 @@ def redact(message: str, token: str | None) -> str:
     return re.sub(r"access_token=[^&\s\"']+", "access_token=[REDACTED_TOKEN]", message)
 
 
+def _handle_error_payload(payload: dict, token: str, attempt: int, retries: int) -> bool:
+    """Si `payload` trae un objeto 'error' (la Graph API a veces lo manda
+    con HTTP 200, no solo en respuestas 4xx/5xx), decide si hay que
+    reintentar (True) o lanzar GraphAPIError (False -> ya lanzó)."""
+    error = payload.get("error")
+    if not error:
+        return False
+    error_code = error.get("code")
+    error_message = error.get("message", str(error))
+    if error_code in RETRYABLE_ERROR_CODES and attempt <= retries:
+        return True
+    raise GraphAPIError(redact(f"Graph API error ({error_code}): {error_message}", token)) from None
+
+
 def _http_get_with_retry(url: str, token: str, throttle: float, retries: int) -> dict:
     """GET con throttling fijo y backoff exponencial en errores retryable
-    (rate limit / transitorios). `url` ya trae la query completa."""
+    (rate limit / transitorios). `url` ya trae la query completa.
+
+    La Graph API a veces devuelve un objeto 'error' con status HTTP 200
+    (no solo como HTTPError 4xx/5xx) — sin chequear eso, una respuesta de
+    rate-limit se leía como página vacía en vez de fallar/reintentar."""
     attempt = 0
     while True:
         time.sleep(throttle)
         try:
             with urllib.request.urlopen(url, timeout=30) as response:
-                return json.loads(response.read().decode("utf-8"))
+                payload = json.loads(response.read().decode("utf-8"))
+            attempt += 1
+            if _handle_error_payload(payload, token, attempt, retries):
+                time.sleep(min(60, 2 ** attempt))
+                continue
+            return payload
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
             try:
@@ -285,6 +308,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
     parser = build_parser()
     args = parser.parse_args(argv)
 
