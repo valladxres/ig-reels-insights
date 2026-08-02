@@ -1,0 +1,40 @@
+{
+  "media": {
+    "id": "17999999999999999",
+    "media_type": "VIDEO",
+    "media_product_type": "REELS",
+    "caption": "3 errores que cometes al usar IA para automatizar tu negocio. Comenta GUIA y te mando la plantilla gratis 🔥",
+    "permalink": "https://www.instagram.com/reel/C_fake123/",
+    "timestamp": "2026-07-15T14:00:00+0000",
+    "like_count": 812,
+    "comments_count": 14
+  },
+  "insights": {
+    "reach": 15230,
+    "saved": 340,
+    "shares": 88,
+    "total_interactions": 950,
+    "likes": 812
+  },
+  "comments": [
+    {"id": "c1", "text": "Buenísimo esto, no sabía que se podía automatizar así", "username": "usuario_ana", "timestamp": "2026-07-15T14:10:00+0000", "like_count": 5, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c2", "text": "GUIA", "username": "pedro_biz", "timestamp": "2026-07-15T14:12:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": true, "matched_trigger": "guia"},
+    {"id": "c3", "text": "Te lo mandé al DM 🙌", "username": "valladxres", "timestamp": "2026-07-15T14:13:00+0000", "like_count": 0, "is_from_owner": true, "is_trigger": false, "matched_trigger": null},
+    {"id": "c4", "text": "y esto funciona si tengo una tienda en shopify?", "username": "lucia_shop", "timestamp": "2026-07-15T14:20:00+0000", "like_count": 2, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c5", "text": "AUTOMATIZAR", "username": "carlos_dev", "timestamp": "2026-07-15T14:22:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c6", "text": "Te lo mandé al DM 🙌", "username": "valladxres", "timestamp": "2026-07-15T14:23:00+0000", "like_count": 0, "is_from_owner": true, "is_trigger": false, "matched_trigger": null},
+    {"id": "c7", "text": "se ve complicado esto para alguien que no sabe programar", "username": "marta_g", "timestamp": "2026-07-15T14:30:00+0000", "like_count": 1, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c8", "text": "cuánto sale la plantilla completa?", "username": "pedro_biz", "timestamp": "2026-07-15T14:31:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c9", "text": "esto no sirve para nada, ya lo probé y no funciona", "username": "hater_22", "timestamp": "2026-07-15T14:40:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c10", "text": "GUIA porfa!!", "username": "nadia_r", "timestamp": "2026-07-15T14:41:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": true, "matched_trigger": "guia"},
+    {"id": "c11", "text": "y sirve para instagram tambien o solo whatsapp?", "username": "lucia_shop", "timestamp": "2026-07-15T14:45:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c12", "text": "excelente contenido como siempre", "username": "fan_del_canal", "timestamp": "2026-07-15T14:50:00+0000", "like_count": 3, "is_from_owner": false, "is_trigger": false, "matched_trigger": null},
+    {"id": "c13", "text": "GUIA", "username": "roberto_x", "timestamp": "2026-07-15T14:55:00+0000", "like_count": 0, "is_from_owner": false, "is_trigger": true, "matched_trigger": "guia"},
+    {"id": "c14", "text": "Te lo mandé al DM 🙌", "username": "valladxres", "timestamp": "2026-07-15T14:56:00+0000", "like_count": 0, "is_from_owner": true, "is_trigger": false, "matched_trigger": null}
+  ],
+  "counts": {
+    "total_comments": 14,
+    "real_comments": 11,
+    "lead_candidates": 3
+  }
+}
