@@ -171,9 +171,9 @@ def fetch_comments(media_id: str, token: str, owner_username: str | None,
 
 
 INSIGHT_METRIC_CANDIDATES = [
-    "reach", "saved", "shares", "total_interactions", "likes", "comments",
-    "plays", "video_views", "avg_time_watched", "ig_reels_avg_watch_time",
-    "ig_reels_video_view_total_time",
+    "reach", "views", "saved", "shares", "total_interactions", "likes",
+    "comments", "ig_reels_avg_watch_time", "ig_reels_video_view_total_time",
+    "reels_skip_rate",
 ]
 
 

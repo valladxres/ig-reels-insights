@@ -160,9 +160,24 @@ De todo lo anterior, sintetiza qué grabar después:
 Por defecto, en el chat:
 1. **Resumen global** — nº de reels, comentarios totales, % sentimiento
    agregado, top 3 dudas, nº de leads, 5–8 ideas de contenido priorizadas.
-2. **Por reel** — mini-ficha: insights clave (reach, interacciones, saves,
-   shares), sentimiento, dudas, leads.
+2. **Por reel** — mini-ficha completa, nunca solo reach/likes/comments:
+   - Alcance: `reach`, `views`
+   - Interacción: `total_interactions`, `saved`, `shares`, likes, comments
+   - **Retención (siempre inclúyela si está en el JSON):** `ig_reels_avg_watch_time`
+     (tiempo promedio de reproducción, en ms) y `reels_skip_rate` (% que le
+     pasó de largo casi al instante). Estas dos son la señal más directa de
+     si el **hook** funcionó (skip rate alto = hook débil) y si la
+     **estructura del guion** retuvo hasta el final (watch time alto
+     respecto a la duración del reel = estructura sólida).
+   - Sentimiento, dudas, leads
 3. **Leads** — tabla de usuarios interesados.
+4. **Si el usuario pide comparar reels** (qué hook/formato/estructura
+   funciona mejor): cruza retención + skip rate de cada reel con lo que
+   sepas de su guion o hook — si hay un guion correspondiente en su bóveda
+   de Obsidian (`resources/guiones/`), léelo para relacionar el dato con la
+   decisión creativa real (tipo de hook, si fue visual o verbal, dónde fue
+   el tutorial). No inventes la relación causa-efecto si no tienes el guion
+   — repórtala como hipótesis, no como hecho.
 
 Si son varios reels o mucho volumen, ofrece exportar:
 - **Markdown** — `reporte-YYYY-MM-DD.md` con el detalle completo.
@@ -179,7 +194,9 @@ Si son varios reels o mucho volumen, ofrece exportar:
   Token vencido → pide uno nuevo y actualiza el `.env`.
 - `insights` prueba métricas una por una (la Graph API cambia el set válido
   entre versiones/tipos de media); las que fallan quedan en `_errors`, sin
-  romper el resto del bundle.
+  romper el resto del bundle. Confirmado con la API real: `impressions`,
+  `profile_visits` y `follows` **no** están soportadas para media tipo
+  REELS (siempre fallan) — por eso no están en la lista de métricas.
 - Datos sensibles: los JSON en `out/` contienen usernames y comentarios de
   personas reales. No los subas a repos públicos ni los compartas fuera de
   quien los generó.
